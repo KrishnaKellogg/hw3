@@ -3,12 +3,12 @@
 <%= form_with :model => @post do |form| %>
   <p>
   <%# add form fields %>
-    <%= form.label "author" %>
-    <%= form.text_field "author" %>
-    <%= form.label "body" %>
-    <%= form.text_field "body" %>
-    <%= form.label "image" %>
-    <%= form.text_field "image" %>
+    <%= form.label "title" %>
+    <%= form.text_field "title" %>
+    <%= form.label "description" %>
+    <%= form.text_field "description" %>
+    <%= form.label "date" %>
+    <%= form.text_field "date" %>
   </p>
   <%= form.submit %>
 <% end %>
