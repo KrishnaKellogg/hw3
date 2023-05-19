@@ -1,10 +1,5 @@
 class PostsController < ApplicationController
 
-  def show
-    @post = Post.find_by({"id" => params["id"]})
-    @place = Place.find_by({"id" => @post["place_id"]})
-  end
-
    def new
      @post = Post.new
   #   # render posts/new view with new Post form
@@ -26,5 +21,5 @@ class PostsController < ApplicationController
   #   # redirect user
   redirect_to "/places/#{@post["place_id"]}"
    end
-  
+   
   end
