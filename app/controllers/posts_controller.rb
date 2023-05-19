@@ -3,6 +3,8 @@ class PostsController < ApplicationController
    def new
      @post = Post.new
      @post.place_id = params["place_id"]
+  #   @place = Place.find_by({ "id" => params["place_id"] })
+  #   @post["place_id"] = @place["id"]
   #   # render posts/new view with new Post form
    end
 
@@ -21,7 +23,7 @@ class PostsController < ApplicationController
       @post.save
  
   #   # redirect user
-    redirect_to "/places/#{@post.place_id}"
+    redirect_to "/places/#{@post["place_id"]}"
    end
    
   end

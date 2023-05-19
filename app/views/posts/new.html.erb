@@ -8,8 +8,8 @@
     <%= form.label "description" %>
     <%= form.text_field "description" %>
     <%= form.label "posted_on" %>
-    <%= form.text_field "posted_on" %>
-    <%= form.hidden_field "place_id" %>
-  </p>
+    <%= form.date_field "posted_on" %>
+  
+  </p>  <%= form.hidden_field "place_id" %>
   <%= form.submit %>
 <% end %>
