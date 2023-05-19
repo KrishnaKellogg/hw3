@@ -1,7 +1,13 @@
-<div class="row">
-  <% for place in @places %>
-    <div class="col-3">
-      <h4><%= place["name"] %></h4>
-    </div>
+<% places = Place.all %>
+
+<h1>Places I've Been</h1>
+ 
+<ul>
+  <% for place in places %>
+    <li>
+      <%= place["name"] %>
+    </li>
   <% end %>
-</div>
+</ul>
+
+<p><a href="/places/new">New Place</a></p>

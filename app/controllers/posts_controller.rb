@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
-  def index
-    @posts = Post.all
+  def show
+    @post = Post.find_by({"id" => params["id"]})
+    @place = Place.find_by({"id" => @post["place_id"]})
   end
 
    def new
@@ -13,12 +14,17 @@ class PostsController < ApplicationController
   #   # start with a new Post
      @post = Post.new
   #   # assign user-entered form data to Post's columns
-    @post["name"] = params["post"]["name"]
-  #   # save Post row
-  @post.save
+    @post["title"] = params["post"]["title"]
+    @post["posted_on"] = params["post"]["posted_on"]
+    @post["description"] = params["post"]["description"]
+    
+    # assign relationship between Contact and Company
+    @post["place_id"] = params["post"]["place_id"]
+
+    @post.save
+ 
   #   # redirect user
-  redirect_to "/posts"
+  redirect_to "/places/#{@post["place_id"]}"
    end
   
-
-end
+  end

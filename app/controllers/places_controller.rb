@@ -1,30 +1,21 @@
 class PlacesController < ApplicationController
 
-  def show
-    @place = Place.find_by({"id" => params["id"]})
-    @post = Post.find_by({"id" => @place["post_id"]})
+  def index
+    @places = Place.all
   end
 
-  def new
-    @place = Place.new
-  end
+   def new
+     @place = Place.new
+  #   # render posts/new view with new Post form
+   end
 
-  def create
-
-    @place = Place.new
-
-    # assign user-entered form data to Contact's columns
+   def create
+  #   # start with a new Post
+     @place = Place.new
+  #   # assign user-entered form data to Post's columns
     @place["name"] = params["place"]["name"]
-
-    # assign relationship between Contact and Company
-    @place["post_id"] = params["place"]["post_id"]
-
-    # save Contact row
     @place.save
-
-    # redirect user
-    redirect_to "/posts/#{@place["post_id"]}"
-  end
-  
-
+  #   # redirect user
+  redirect_to "/places"
+   end
 end
